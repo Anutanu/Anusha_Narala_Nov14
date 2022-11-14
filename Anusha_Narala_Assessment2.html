@@ -1,0 +1,218 @@
+
+<html>
+    <head>
+ <style type="text/css">
+   body{background-color:rgb(13, 144, 146);}
+    #Section2{display: none};
+   
+ </style>
+    </head>
+ 
+    <body>
+ 
+ 
+ 
+   
+
+
+      <form name="myform" onsubmit="return Validpassword()" action="newHTML.html" method="post">
+         <h1>Welcome to Life of Travel</h1>
+
+         <div id="para1" style="width:50%;float:center; padding: 10px" >
+            <h4 style="color:Black">Why Book with us</h4>
+            <p style="color:Black"> Life of Travel is one of the topmost travel companies of India and is a trusted name in the Indian travel industry. 
+               It is also known for providing the best travel deals to travelers. 
+                It can satisfy all your travel needs. 
+            </p>
+            </div>
+ 
+       <div id="Section1">
+       <!--Section 1 Radio button code starts--> 
+       
+ <br><b> Choose your destination: </b><br>
+ <input type="radio" name="one" id="Onward Journey" value="Onward Journey" onclick=" checkButton()">One Way<br> 
+ <input type="radio" name="one" id="Return Journey" value="Return Journey"  onclick=" checkButton()" >Round Trip<br> 
+ 
+ 
+ <!--Radio button code Ends--> 
+ 
+ <!--<button type="button" onclick=" checkButton()"> Submit </button>--> 
+     
+ <h3 id="disp" style= "color:green">               </h3>
+ <h4 id="error" style= "color:red">                </h4>
+ </div>        
+ <!--Section  1 Ends -->             
+ <div id="Section2">
+   <h4>Passenger
+         Enter your Email: <input type="text" name="myemail" id="email" >
+    Enter your Mobile Number: <input type="tel" name="mobile" id="mob" pattern="[0]{1}[0-9]{9}" title="Mobile number with 0 and remaining 9 digit with 0-9"><br /><br />
+         Gender     <input type="radio"    name="gender" value="m" />Male
+         <input type="radio"    name="gender" value="f" />Female<br /><br />               
+         Age: <input type="number" name="EnterAge" id="Age"> <br /><br />
+         Address: <textarea id="Address" name="Address" rows="4" cols="50"></textarea><br /><br />
+         Date of Journey:<input type="date" name="DateDOJ" id="DateDOJ">
+         Return of Journey:<input type="date" name="DateROJ" id="DateROJ"><br /><br />
+        To<input type="text" name="Toloc" id="Toloc" placeholder="Please enter Locality">
+        From<input type="text" name="Fromloc" id="Fromloc" placeholder="Please select Locality"><br /><br />
+
+     <!--Section  2 Ends -->    <!--section2.style.display = 'block'; --> 
+     <h4>Passenger 2 </h4>
+      <!--Section  2 - Make invisible until radio button selected-->       
+      Enter your name: <input type="text" name="myname1" id="newmine1" pattern="[a-zA-Z]{5,}" title="Only Alphabets with minimum five chars"><br /><br />
+                           
+      Enter your Email: <input type="text" name="myemail1" id="email1" ><br /><br />
+ Enter your Mobile Number: <input type="tel" name="mobile1" id="mob1" pattern="[0]{1}[0-9]{9}" title="Mobile number with 0 and remaining 9 digit with 0-9"><br /><br />
+      Gender     <input type="radio"    name="gender1" value="m" />Male
+      <input type="radio"    name="gender1" value="f" />Female<br /><br />               
+      Age: <input type="number" name="EnterAge1" id="Age"><br /><br /> 
+      Address: <textarea id="Address1" name="Address1" rows="4" cols="50"></textarea><br /><br />
+      Date of Journey: <input type="date" name="DateDOJ1" id="DateDOJ1"><br /><br />
+      Return of Journey: <input type="date" name="MydateROJ1" id="DateROJ1"><br/><br />
+     To<input type="text" name="To" id="To1" placeholder="Please enter Locality"><br /><br />
+     From<input type="text" name="From1" id="From1" placeholder="Please select Locality"><br /><br />
+                          <input type="submit" value="Submit">
+          <!--Section  2 Ends -->    <!--section2.style.display = 'block'; -->  
+    </div>   
+    
+       
+        
+     </form>
+ 
+     <script>
+ function checkButton() 
+                     {  
+                         if(document.getElementById('Onward Journey').checked) 
+                          { 
+                            document.getElementById("disp").innerHTML = document.getElementById("Onward Journey").value  + " Passenger details"; 
+                            document.getElementById("Section2").style.display = "block";
+                             
+                        } 
+                         else if(document.getElementById('Return Journey').checked) 
+                              { 
+                                document.getElementById("disp").innerHTML = document.getElementById("Return Journey").value + " Passenger details";   
+                                document.getElementById("Section2").style.display = "block";
+                                
+                               } 
+                                        else { 
+                                                document.getElementById("error").innerHTML 
+                                                    = "You have not selected a destination"; 
+                                             } 
+                           
+                     } 
+     
+ 
+            function Validpassword()
+               {
+                  let username=document.getElementById("newmine").value;
+               
+                  if (username== "null" || username == "")
+                         {
+                            alert( "enter  passenger 1 name");
+                            return false;
+                         }
+                /*  let password1=document.myform.pass1.value;
+                  let cpassword1=document.myform.cpass1.value;
+                  if (password1.length<6)
+                         {
+                          alert( "Password must be 6 characters and not blank");
+                            return false;
+                         }
+                  if (password1!=cpassword1) 
+                         {
+                           alert( "Confirm password must not be blank and both password & confirm password must be same");
+                           return false; 
+                        }*/
+                                 
+            let mymail=document.myform.myemail.value;
+            let attherate=mymail.indexOf("@");
+            let atthedot=mymail.lastIndexOf(".");
+ 
+            if (attherate<1 || atthedot<attherate+2 || atthedot>=mymail.length)
+                   {
+                      alert( "passenger1 email must not be blank and must be in email format");
+                      return false;
+                   }
+ 
+            
+ 
+                         let mobile1=(document.myform.mobile.value)
+ 
+ if (mobile1.length!=10)
+ {
+   alert( "enter the correct 10 digits number");
+   return false;
+}
+let gender=(document.myform.gender.value)
+if (gender == null || gender == "")
+{
+    alert( "enter passenger 1 gender");
+   return false;
+}
+let age=(document.myform.EnterAge.value)
+if (age == null || age == "")
+{
+    alert( "enter passenger 1 age");
+   return false;
+}
+let Address=(document.myform.Address.value)
+if (Address == null || Address == "")
+{
+    alert( "enter passenger 1 Address");
+   return false;
+}
+let DOJ=(document.myform.DateDOJ.value)
+if (DOJ == null || DOJ == "")
+{
+    alert( "enter passenger 1 Date of Journey");
+   return false;
+}
+if (document.getElementById('Return Journey').checked && ROJ == "")
+{
+    alert( "enter passenger 1 return of Journey");
+    return false;
+}
+
+let To=(document.myform.Toloc.value)
+if (To == null || To == "")
+{
+    alert( "enter passenger  To (pick up location)");
+   return false;
+}
+let From=(document.myform.Fromloc.value)
+if (From == null || From == "")
+{
+    alert( "enter passenger 1 from (drop off location)");
+   return false;
+}
+  else    
+  {
+   let response = confirm("Data is correct. Are you sure you want to proceed?");
+  
+   if(response==true)
+   {
+    location.href =  "Booking.html";
+   return false;
+   }
+   else
+   {
+      return false;
+   }   
+  }  
+        
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+      } 
+ 
+     </script>
+    </body>
+ 
+ 
+ 
+ 
+ </html>
